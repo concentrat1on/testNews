@@ -52,7 +52,6 @@ extension MainViewController: MainViewModelDelegate {
 extension MainViewController: FilterViewControllerDelegate {
     
     func savedFilter(with model: FilterModel?) {
-        print(model)
         viewModel.filterModel = model
     }
 
