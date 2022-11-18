@@ -23,8 +23,8 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let url = URL(string: urlString) {
-            self.webView.load(URLRequest(url: url))
-            self.webView.allowsBackForwardNavigationGestures = true
+            webView.load(URLRequest(url: url))
+            webView.allowsBackForwardNavigationGestures = true
         }
     }
 

@@ -11,19 +11,25 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupLayout()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension TabBarController {
+    private func setupLayout() {
+        
+        let mainViewController = MainViewController()
+        let mainNavigationController = UINavigationController(rootViewController: mainViewController)
+        mainNavigationController.tabBarItem = UITabBarItem(title: "Main",
+                                                           image: TabBarImages.main.image,
+                                                           selectedImage: TabBarImages.main.selectedImage)
+        
+        let favoritesViewController = FavoritesViewController()
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
+        favoritesNavigationController.tabBarItem = UITabBarItem(title: "Favorites",
+                                                                image: TabBarImages.favorites.image,
+                                                                selectedImage: TabBarImages.favorites.selectedImage)
+        
+        setViewControllers([mainNavigationController, favoritesNavigationController], animated: false)
     }
-    */
-
 }

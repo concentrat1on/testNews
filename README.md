@@ -1,2 +1,2 @@
 # testNews
-# testNews
+Pecode test application

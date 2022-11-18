@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class NetworkingEndpoint {
+    
+    static let baseURL = "https://newsapi.org/v2/top-headlines?"
+}

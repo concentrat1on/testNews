@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import Alamofire
+
+protocol NetworkingProtocol {
+    func getNews(searchText: String?, filterModel: FilterModel?, completion: @escaping (Result<NewsModel, AFError>) -> ())
+}

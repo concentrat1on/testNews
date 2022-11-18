@@ -7,17 +7,17 @@
 
 import Foundation
 
-enum Sources: String {
+enum Source: String, CaseIterable {
     
-    case unknown = "Not Selected"
-    case bbcNews = "bbcNews"
+    case notSelected = "Not Selected"
+    case bbcNews = "BBC News"
     
-    var value: String {
+    var shorten: String {
         switch self {
-        case .unknown:
+        case .notSelected:
             return ""
         case .bbcNews:
-            return "BBC News"
+            return "bbc-news"
         }
     }
 }

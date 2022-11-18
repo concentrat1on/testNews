@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol RealmServiceProtocol {
+    func toggleArticleToFavorites(_ article: ArticleModel)
+    func isArticleContains(for key: String) -> Bool
+    func getArticles(completion: @escaping ([ArticleModel]?) -> ())
+}
