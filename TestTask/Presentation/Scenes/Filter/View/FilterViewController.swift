@@ -24,13 +24,6 @@ class FilterViewController: BaseViewController {
         setupLayot()
     }
     
-    private func makeAttibutedButton(button: UIButton, text: String) {
-        let attributes = NSAttributedString(string: text, attributes:
-                                                [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .bold),
-                                                 NSAttributedString.Key.foregroundColor : UIColor.systemBlue])
-        button.setAttributedTitle(attributes, for: .normal)
-    }
-    
     @objc private func saveFilter() {
         delegate?.savedFilter(with: viewModel.model)
         navigationController?.popViewController(animated: true)
@@ -105,40 +98,7 @@ extension FilterViewController: UITableViewDataSource {
 extension FilterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedString = viewModel.tableViewData[indexPath.section][indexPath.row]
-        switch indexPath.section {
-        case 0:
-            let country = Country(rawValue: selectedString) ?? .notSelected
-            if country == .notSelected {
-                viewModel.model?.country = nil
-            } else {
-                viewModel.model?.country = country
-                viewModel.model?.source = nil
-                viewModel.headers[2]?.makeHeader(selection: Source.notSelected.rawValue)
-            }
-        case 1:
-            let category = Category(rawValue: selectedString) ?? .notSelected
-            if category == .notSelected {
-                viewModel.model?.category = nil
-            } else {
-                viewModel.model?.category = category
-                viewModel.model?.source = nil
-                viewModel.headers[2]?.makeHeader(selection: Source.notSelected.rawValue)
-            }
-        case 2:
-            let source = Source(rawValue: selectedString) ?? .notSelected
-            if source == .notSelected {
-                viewModel.model?.source = nil
-            } else {
-                viewModel.model?.source = source
-                viewModel.model?.country = nil
-                viewModel.model?.category = nil
-                viewModel.headers[0]?.makeHeader(selection: Country.notSelected.rawValue)
-                viewModel.headers[1]?.makeHeader(selection: Category.notSelected.rawValue)
-            }
-        default: fatalError()
-        }
-        viewModel.headers[indexPath.section]?.makeHeader(selection: selectedString)
+        viewModel.tableView(didSelectRowAt: indexPath)
     }
 }
 

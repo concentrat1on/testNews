@@ -29,7 +29,8 @@ class FilterTableViewCell: UITableViewCell {
 extension FilterTableViewCell {
     
     private func setupLayout() {
-        backgroundColor = .none
+        backgroundColor = .clear
+        selectionStyle = .none
         makeTitleLabel()
     }
     

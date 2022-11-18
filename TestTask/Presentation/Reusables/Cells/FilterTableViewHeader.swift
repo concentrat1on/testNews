@@ -44,6 +44,7 @@ class FilterTableViewHeader: UIView {
 extension FilterTableViewHeader {
     
     private func setupLayout() {
+        backgroundColor = .gray
         makeTitleLabel()
         makeSelectionLabel()
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapped))
@@ -61,7 +62,7 @@ extension FilterTableViewHeader {
         }
         
         titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .white
         self.titleLabel = titleLabel
     }
     
@@ -75,7 +76,7 @@ extension FilterTableViewHeader {
         }
         
         selectionLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        selectionLabel.textColor = .systemBlue
+        selectionLabel.textColor = .white
         self.selectionLabel = selectionLabel
     }
 }

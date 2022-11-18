@@ -32,6 +32,7 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func makeCellWith(_ model: ArticleModel, index: Int) {
+        
         titleLabel.text = model.title
         descriptionLabel.text = model.description
         authorLabel.text = model.author != nil ? "Author: \(model.author!)" : ""
@@ -45,6 +46,7 @@ class NewsTableViewCell: UITableViewCell {
         
         self.index = index
         
+        photoImageView.image = nil
         guard let url = URL(string: model.urlToImage ?? "") else { return }
         let request = ImageRequest(url: url)
         
